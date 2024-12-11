@@ -1,0 +1,48 @@
+/* Written By Anthony Colley
+Figure 4.9b */
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style type="text/css">
+      .v-leave-from {
+        opacity: 1;
+        background-color:#FFCCCC;
+      }
+      .v-leave-to {
+        opacity: 0;
+        background-color:black;
+      }
+      .v-leave-active {
+        transition: all 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+  
+  <script>
+  
+    var app = Vue.createApp({
+      data() {
+        return {
+          show: true   // visible at start
+        }
+      },
+      template : `
+        <button @click="show=!show">Produce the effect</button>
+        <transition>
+          <p v-if="show">
+            Paragraph 1
+          </p>
+        </transition>   
+      `,
+    });
+    
+    var vm = app.mount("div#app");
+    
+  </script>
+  
+</html>
