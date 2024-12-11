@@ -10,12 +10,17 @@ const GlobalApp = {
     Element: Element,
   },
   template: `
-  <button @click="add()">Add Task</button>
+  <button class="add-task" @click="add()">Add Task</button>
   <ul>
-  <Element v-for="(element, index) in elements"
-  :key="index" :element="element"
-   @remove="remove($event)" @modify="modify($event)" @task="task($event)"  @dateA="dateA($event)"  
- />
+    <Element 
+      v-for="(element, index) in elements"
+      :key="index" 
+      :element="element"
+      @remove="remove($event)" 
+      @modify="modify($event)" 
+      @task="task($event)"  
+      @dateA="dateA($event)"  
+    />
   </ul>
 `,
   methods: {
